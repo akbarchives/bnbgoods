@@ -3,11 +3,7 @@
     class="custom-container mx-auto mb-10 max-w-screen-2xl px-6 py-10 sm:px-8"
   >
     <!-- <NuxtLink to="/categories">categories</NuxtLink> -->
-    <h1 class="mb-2 mt-12 text-3xl font-semibold">Hot Products 🔥</h1>
-
-    <h1 class="mb-4 text-xl font-normal md:w-1/2">
-      Product on sale with high quality
-    </h1>
+    <h1 class="my-12 text-3xl font-semibold">Category: {{ title }}</h1>
 
     <!-- card 6 -->
     <div
@@ -49,6 +45,7 @@
 
 <script setup>
 const route = useRoute();
+const title = route.params.slug;
 
 const { data: posts } = await useFetch(
   'https://dummyjson.com/products/category/' + route.params.slug
